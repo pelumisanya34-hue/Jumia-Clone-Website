@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Premium Jumia Clone</title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  Free Delivery on Orders Over ₦20,000
+</div>
+
+<!-- NAVBAR -->
+<header>
+
+<nav class="navbar">
+
+  <div class="logo">
+    <h1>JUMIA</h1>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-box">
+
+    <input
+    type="text"
+    id="searchInput"
+    placeholder="Search products..."
+    onkeyup="searchProducts()">
+
+    <button>SEARCH</button>
+
+  </div>
+
+  <!-- NAV ICONS -->
+  <div class="nav-icons">
+
+    <div class="icon" onclick="openModal()">
+      <i class="fa-regular fa-user"></i>
+      <span>Login</span>
+    </div>
+
+    <div class="icon">
+      <i class="fa-regular fa-heart"></i>
+      <span>Wishlist</span>
+    </div>
+
+    <div class="icon">
+
+      <i class="fa-solid fa-cart-shopping"></i>
+
+      <small id="cart-count">0</small>
+
+    </div>
+
+    <div class="theme-toggle"
+    onclick="toggleTheme()">
+
+      <i class="fa-solid fa-moon"></i>
+
+    </div>
+
+  </div>
+
+  <!-- MOBILE -->
+  <div class="menu-btn">
+    <i class="fa-solid fa-bars"></i>
+  </div>
+
+</nav>
+
+</header>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+  <a href="#">Phones</a>
+  <a href="#">Fashion</a>
+  <a href="#">Gaming</a>
+  <a href="#">Electronics</a>
+  <a href="#">Beauty</a>
+
+</div>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div>
+
+    <h2>BIGGEST SALE OF THE YEAR</h2>
+
+    <p>Up to 70% off electronics & fashion</p>
+
+    <button>Shop Now</button>
+
+  </div>
+
+</section>
+
+<!-- CATEGORIES -->
+<section class="categories">
+
+  <div class="category-card">
+    <i class="fa-solid fa-mobile-screen"></i>
+    <p>Phones</p>
+  </div>
+
+  <div class="category-card">
+    <i class="fa-solid fa-shirt"></i>
+    <p>Fashion</p>
+  </div>
+
+  <div class="category-card">
+    <i class="fa-solid fa-gamepad"></i>
+    <p>Gaming</p>
+  </div>
+
+  <div class="category-card">
+    <i class="fa-solid fa-tv"></i>
+    <p>Electronics</p>
+  </div>
+
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+
+<h2>Flash Sales</h2>
+
+<div class="product-grid">
+
+<!-- PRODUCT -->
+<div class="product-card"
+data-name="iphone">
+
+<img
+src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200&auto=format&fit=crop">
+
+<h3>iPhone 15 Pro</h3>
+
+<p class="price">₦1,200,000</p>
+
+<div class="product-actions">
+
+<button onclick="addToCart('iPhone 15 Pro')">
+Cart
+</button>
+
+<button onclick="addWishlist()">
+❤
+</button>
+
+<button onclick="showPopup(
+'iPhone 15 Pro',
+'₦1,200,000',
+'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200&auto=format&fit=crop'
+)">
+View
+</button>
+
+</div>
+
+</div>
+
+<!-- PRODUCT -->
+<div class="product-card"
+data-name="watch">
+
+<img
+src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop">
+
+<h3>Smart Watch</h3>
+
+<p class="price">₦85,000</p>
+
+<div class="product-actions">
+
+<button onclick="addToCart('Smart Watch')">
+Cart
+</button>
+
+<button onclick="addWishlist()">
+❤
+</button>
+
+<button onclick="showPopup(
+'Smart Watch',
+'₦85,000',
+'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop'
+)">
+View
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CART -->
+<section class="cart-section">
+
+<h2>Your Cart</h2>
+
+<div id="cart-items"></div>
+
+</section>
+
+<!-- LOGIN MODAL -->
+<div class="modal"
+id="loginModal">
+
+<div class="modal-content">
+
+<span class="close-btn"
+onclick="closeModal()">
+
+&times;
+
+</span>
+
+<h2>Login</h2>
+
+<input type="email"
+placeholder="Email">
+
+<input type="password"
+placeholder="Password">
+
+<button>Login</button>
+
+</div>
+
+</div>
+
+<!-- PRODUCT POPUP -->
+<div class="product-popup"
+id="popup">
+
+<div class="popup-content">
+
+<span class="close-btn"
+onclick="closePopup()">
+
+&times;
+
+</span>
+
+<img id="popup-img">
+
+<h2 id="popup-title"></h2>
+
+<p id="popup-price"></p>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<h3>Need Help?</h3>
+<p>Chat with us 24/7</p>
+</div>
+
+<div>
+<h3>About</h3>
+<p>Careers</p>
+<p>Terms & Conditions</p>
+</div>
+
+<div>
+<h3>Follow Us</h3>
+
+<i class="fa-brands fa-facebook"></i>
+<i class="fa-brands fa-instagram"></i>
+<i class="fa-brands fa-x-twitter"></i>
+
+</div>
+
+</div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
